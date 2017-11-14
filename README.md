@@ -24,3 +24,5 @@ What are the values in the "Method" and "Status" columns? Compare these values t
 What are the values in the "Type" and "Initiator" columns? Compare these values to Step 0.
   Type - "xhr"
   Initiator - "jquery.min.js:4"
+
+  
