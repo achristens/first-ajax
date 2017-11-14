@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var section2 = document.querySelector('#step7');
   var time     = document.querySelector('#time');
   var section3 = document.querySelector('#step8');
+  var car      = document.querySelector('#car');
+  var section4 = document.querySelector('#step9');
+  var list     = document.querySelector('#my-list');
 
   stepOne.addEventListener('click', function(){
     $.ajax({
@@ -56,11 +59,23 @@ document.addEventListener("DOMContentLoaded", function() {
       data: {timezone:'Asia/Kolkata'},
       dataType: 'text'
     }).done(function(responseData){
-      var offset =
       console.log(responseData);
       var element = document.createElement('p');
       element.innerHTML = responseData;
       section3.append(element);
     });
-  })
+  });
+
+  car.addEventListener('click', function(){
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      dataType: 'html'
+    }).done(function(responseData){
+      console.log("We got a car!");
+      var element = document.createElement('li');
+      element.innerHTML = responseData;
+      list.append(element);
+    });
+  });
 });
