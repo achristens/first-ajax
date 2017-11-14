@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   pingPong.addEventListener('click', function(){
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/ping',
+      url: 'http://first-ajax-api.herokuapp.com/pong',
       method: 'GET',
       dataType: 'text'
     }).done(function (responseData){
@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
       var addResponse = document.createElement('p');
       addResponse.innerHTML = responseData;
       section.append(addResponse);
+    }).fail(function(){
+      var element = document.createElement('p');
+      element.innerHTML = "We have failed you. We are sorry. We will try harder."
+      section.append(element);
     });
   });
 });
